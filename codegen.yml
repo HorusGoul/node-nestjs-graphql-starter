@@ -1,0 +1,16 @@
+overwrite: true
+schema: './src/**/*.graphql'
+documents: null
+generates:
+  src/graphql-api/graphql-api.types.ts:
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - 'typescript'
+      - 'typescript-resolvers'
+    config:
+      enumsAsTypes: true
+      scalars:
+        Date: Date
+        PaginationAmount: number
+        JSON: any
