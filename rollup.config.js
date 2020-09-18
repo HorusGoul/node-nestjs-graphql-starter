@@ -4,7 +4,7 @@ import commonjsPlugin from '@rollup/plugin-commonjs';
 import jsonPlugin from '@rollup/plugin-json';
 import externalsPlugin from 'rollup-plugin-node-externals';
 import copyPlugin from 'rollup-plugin-copy';
-import { getBabelOutputPlugin } from '@rollup/plugin-babel';
+import babelPlugin from '@rollup/plugin-babel';
 
 export default {
   input: 'src/index.ts',
@@ -24,11 +24,12 @@ export default {
       tsconfig: './tsconfig.json',
       module: 'es2015',
     }),
-    commonjsPlugin({
+    babelPlugin({
+      configFile: './babel.config.js',
       extensions: ['.js', '.ts'],
     }),
-    getBabelOutputPlugin({
-      configFile: './babel.config.js',
+    commonjsPlugin({
+      extensions: ['.js', '.ts'],
     }),
     copyPlugin({
       targets: [{ src: 'src/**/*.graphql', dest: './dist' }],
