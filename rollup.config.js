@@ -28,6 +28,7 @@ export default {
       module: 'es2015',
     }),
     babelPlugin({
+      babelHelpers: 'bundled',
       configFile: './babel.config.js',
       extensions: ['.js', '.ts'],
     }),
