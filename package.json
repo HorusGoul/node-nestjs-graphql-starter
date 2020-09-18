@@ -80,7 +80,6 @@
     "graphql-scalar": "^0.0.11",
     "graphql-tools": "^6.2.2",
     "graphql-type-json": "^0.3.2",
-    "module-alias": "^2.2.2",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "^0.13.7",
     "rxjs": "^6.6.3"
