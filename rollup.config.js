@@ -5,6 +5,9 @@ import jsonPlugin from '@rollup/plugin-json';
 import externalsPlugin from 'rollup-plugin-node-externals';
 import copyPlugin from 'rollup-plugin-copy';
 import babelPlugin from '@rollup/plugin-babel';
+import run from '@rollup/plugin-run';
+
+const dev = process.env.ROLLUP_WATCH === 'true';
 
 export default {
   input: 'src/index.ts',
@@ -35,5 +38,6 @@ export default {
       targets: [{ src: 'src/**/*.graphql', dest: './dist' }],
       flatten: false,
     }),
+    dev && run(),
   ],
 };
