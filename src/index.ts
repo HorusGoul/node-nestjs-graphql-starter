@@ -1,4 +1,3 @@
-import './aliases';
 import 'dotenv/config';
 
 import { NestFactory } from '@nestjs/core';
