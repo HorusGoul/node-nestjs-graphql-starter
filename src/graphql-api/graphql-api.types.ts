@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo } from 'graphql';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
@@ -9,18 +9,12 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  Date: Date;
-  PaginationAmount: number;
-  JSON: any;
 };
 
 export type Query = {
   __typename?: 'Query';
   api_version: Scalars['String'];
 };
-
-
-
 
 
 
@@ -102,9 +96,6 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
-  Date: ResolverTypeWrapper<Scalars['Date']>;
-  PaginationAmount: ResolverTypeWrapper<Scalars['PaginationAmount']>;
-  JSON: ResolverTypeWrapper<Scalars['JSON']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
 
@@ -112,9 +103,6 @@ export type ResolversTypes = {
 export type ResolversParentTypes = {
   Query: {};
   String: Scalars['String'];
-  Date: Scalars['Date'];
-  PaginationAmount: Scalars['PaginationAmount'];
-  JSON: Scalars['JSON'];
   Boolean: Scalars['Boolean'];
 };
 
@@ -122,23 +110,8 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   api_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
-  name: 'Date';
-}
-
-export interface PaginationAmountScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['PaginationAmount'], any> {
-  name: 'PaginationAmount';
-}
-
-export interface JsonScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['JSON'], any> {
-  name: 'JSON';
-}
-
 export type Resolvers<ContextType = any> = {
   Query?: QueryResolvers<ContextType>;
-  Date?: GraphQLScalarType;
-  PaginationAmount?: GraphQLScalarType;
-  JSON?: GraphQLScalarType;
 };
 
 

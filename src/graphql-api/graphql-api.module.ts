@@ -3,7 +3,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { resolve } from 'path';
 import depthLimit from 'graphql-depth-limit';
 import { GraphQLAPIResolver } from './graphql-api.resolver';
-import { ScalarsModule } from './scalars/scalars.module';
 import './graphql-api.types';
 
 @Module({
@@ -19,7 +18,6 @@ import './graphql-api.types';
       // This number limits the maximum depth of incoming queries
       validationRules: [depthLimit(999)],
     }),
-    ScalarsModule,
   ],
   providers: [GraphQLAPIResolver],
 })
